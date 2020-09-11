@@ -1,0 +1,51 @@
+<div class="container text-center">
+
+  <button mat-button (click)="openDialog('Add',{},{})" mat-flat-button color="primary">Add</button>
+  <!-- table  -->
+
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+    <ng-container matColumnDef="day">
+      <mat-header-cell *matHeaderCellDef><b>Day </b></mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.day}} </mat-cell>
+    </ng-container>
+
+
+    <ng-container matColumnDef="totalSamplesTested">
+      <mat-header-cell *matHeaderCellDef><b> TotalSamplesTested</b> </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.totalSamplesTested}} </mat-cell>
+    </ng-container>
+
+
+    <ng-container matColumnDef="totalIndividualsTested">
+      <mat-header-cell *matHeaderCellDef><b>TotalIndividualsTested</b></mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.totalIndividualsTested}} </mat-cell>
+    </ng-container>
+
+
+    <ng-container matColumnDef="totalPositiveCases">
+      <mat-header-cell *matHeaderCellDef> <b>TotalPositiveCases</b> </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.totalPositiveCases}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="source">
+      <mat-header-cell *matHeaderCellDef><b>Source</b></mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.source}} </mat-cell>
+    </ng-container>
+    <hr>
+
+    <!-- Action column -->
+    <ng-container matColumnDef="action">
+      <mat-header-cell *matHeaderCellDef> <b>Action</b></mat-header-cell>
+      <mat-cell *matCellDef="let element ;let i=index " class="action-link">
+        <button mat-button color="primary"><a (click)="openDialog('Update',element, i)">Edit</a></button>
+        <button mat-button color="primary"><a (click)="openDialog('Delete',element, i)">Delete</a></button>
+      </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  </table>
+
+</div>
+<br><br><br>

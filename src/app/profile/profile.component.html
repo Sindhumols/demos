@@ -1,0 +1,45 @@
+<div class="container text-center">
+    <h1><strong>Telephone</strong></h1>
+
+<table mat-table [dataSource]="dataSource" #mytable class="my-table mat-elevation-z8">
+
+        <ng-container matColumnDef="contactNumber">
+            <th mat-header-cell *matHeaderCellDef><b>contactNumber</b></th>
+            <td mat-cell *matCellDef="let element"> {{element.contactNumber}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="dialCountryCode">
+            <th mat-header-cell *matHeaderCellDef><b>DialCountryCode</b></th>
+            <td mat-cell *matCellDef="let element"> {{element.dialCountryCode}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="dialExtension">
+            <th mat-header-cell *matHeaderCellDef><b>DialExtension</b></th>
+            <td mat-cell *matCellDef="let element"> {{element.dialExtension}} </td>
+        </ng-container>
+        
+
+        <ng-container matColumnDef="dialNumber">
+            <th mat-header-cell *matHeaderCellDef><b>DialNumber</b></th>
+            <td mat-cell *matCellDef="let element"> {{element.dialNumber}} </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr><br>
+
+    </table><hr>
+    <h1><strong>Email</strong></h1>
+<table mat-table [dataSource]="dataSource" #mytable class="my-table mat-elevation-z8">
+    <ng-container matColumnDef="defaultEmail">
+        <th mat-header-cell *matHeaderCellDef><b> DefaultEmail</b> </th>
+        <td mat-cell *matCellDef="let element"> {{element.defaultEmail}} </td>
+    </ng-container>
+    <ng-container matColumnDef="emailAddress">
+        <th mat-header-cell *matHeaderCellDef><b> EmailAddress</b></th>
+        <td mat-cell *matCellDef="let element"> {{element.emailAddress}} </td>
+    </ng-container>
+    <tr mat-header-row *matHeaderRowDef="displayedrows"></tr>
+    <tr mat-row *matRowDef="let row; columns:  displayedrows;"></tr>
+</table>
+</div>
+<br><br><br><br><br>

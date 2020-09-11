@@ -1,0 +1,25 @@
+<form [formGroup]="myForm" (ngSubmit)="onSubmit()" method="POST" action="">
+    <h2>{{name}}</h2>
+    <table>
+        <div formArrayName="arr" *ngFor="let a of formData.controls; let i = index">
+            <ng-container [formGroupName]="i">
+                <th>Price</th>
+                <td> <input placeholder="price" formControlName="Price"></td>
+                <th>Quantity</th>
+                <td> <input placeholder="quantity" formControlName="Quantity"></td>
+                <th>Discount</th>
+                <td> <input placeholder="Discount" formControlName="Discount"></td>
+              
+                <td><mat-icon (click)="addItem()" aria-label="Example add_circle">add_circle_outline</mat-icon></td>
+
+
+            </ng-container>
+        </div>
+    </table>
+
+    <button type="submit">Submit</button>
+</form>
+<br><br><br>
+
+
+

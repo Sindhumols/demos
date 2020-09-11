@@ -1,0 +1,66 @@
+<!-- dialog-box.component.html -->
+<h1 mat-dialog-title><strong>Fill the form:</strong> </h1>
+<div mat-dialog-content>
+
+  <div *ngIf="action != 'Delete'; else elseTemplate">
+    <!-- <mat-form-field >
+        <input placeholder="{{action}} day" matInput [(ngModel)]="local_data.day">
+      </mat-form-field>
+      <mat-form-field >
+        <input placeholder="{{action}} totalSamplesTested" matInput [(ngModel)]="local_data.totalSamplesTested">
+      </mat-form-field>
+      <mat-form-field >
+        <input placeholder="{{action}} totalIndividualsTested" matInput [(ngModel)]="local_data.totalIndividualsTested">
+      </mat-form-field>
+      <mat-form-field >
+        <input placeholder="{{action}} totalPositiveCases" matInput [(ngModel)]="local_data.totalPositiveCases">
+      </mat-form-field> -->
+    <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+      <p>All fields * marks are required</p>
+      <label for="day">
+        Day*:
+        <br> <input type="date" formControlName="day" placeholder="{{action}} day" [(ngModel)]="local_data.day"
+          required>
+      </label>
+
+      <label>
+        totalSamplesTested*:
+        <input type="text" formControlName="totalSamplesTested" placeholder="{{action}} totalSamplesTested"
+          [(ngModel)]="local_data.totalSamplesTested" required>
+      </label>
+
+      <label>
+        totalIndividualsTested:
+        <input type="text" formControlName="totalIndividualsTested" placeholder="{{action}} totalIndividualsTested"
+          [(ngModel)]="local_data.totalIndividualsTested">
+      </label>
+      <label>
+        totalPositiveCases:
+        <input type="text" formControlName="totalPositiveCases" placeholder="{{action}} totalPositiveCases"
+          [(ngModel)]="local_data.totalPositiveCases">
+      </label>
+      <div mat-dialog-actions>
+        <button mat-button type="submit" (click)="doAction()" [disabled]="!profileForm.valid">Submit</button>
+        <button mat-button (click)="closeDialog()" mat-flat-button color="warn">Cancel</button>
+      </div>
+    </form>
+
+  </div>
+  <ng-template #elseTemplate>
+    Sure to delete <b>{{local_data.day}} <br>
+      {{local_data.totalSamplesTested}}<br>
+      {{local_data.totalIndividualsTested}}<br>
+      {{local_data.totalPositiveCases}} </b>?
+    <div mat-dialog-actions>
+      <button mat-button type="submit" (click)="doAction()">{{action}}</button>
+      <button mat-button (click)="closeDialog()" mat-flat-button color="warn">Cancel</button>
+    </div>
+  </ng-template>
+</div>
+
+
+<!-- <div mat-dialog-actions>
+  <button mat-button type="submit" (click)="doAction()" [disabled]="!profileForm.valid">Submit</button>
+  <button mat-button (click)="closeDialog()" mat-flat-button color="warn">Cancel</button>
+</div> -->
+<br><br><br>
